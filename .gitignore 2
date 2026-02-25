@@ -1,0 +1,27 @@
+# Build outputs
+Debug/
+Release/
+build/
+*.o
+*.a
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+
+# CubeIDE / Eclipse
+.settings/
+.project
+.cproject
+*.launch
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+
+# Python / venv (varsa)
+.venv/
+__pycache__/

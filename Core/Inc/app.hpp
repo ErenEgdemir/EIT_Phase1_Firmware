@@ -22,6 +22,7 @@ extern "C" {
 
 extern SPI_HandleTypeDef hspi1;
 extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim4;
 extern ADC_HandleTypeDef hadc1;
 //extern volatile uint8_t adc_ready;
 extern uint16_t comp_buf[2][512];

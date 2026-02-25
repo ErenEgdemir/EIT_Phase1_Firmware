@@ -21,7 +21,7 @@
 AD9833 DDS(&hspi1, DDS_CS_GPIO_Port, DDS_CS_Pin, 25000000);
 
 static FSM MainFsm;
-MEASFSM SubFSM(16, 16, &hadc1, &htim2);
+MEASFSM SubFSM(16, 32, &hadc1, &htim2, &htim4);
 
 //uint16_t adcBuf[ADC_BUF_LEN];
 
@@ -65,6 +65,8 @@ extern "C" {
 		SubFSM.setLut(lut);
 
 		MainFsm.setSubFsm(&SubFSM);
+
+		HAL_TIM_IC_Start_IT(&htim4, TIM_CHANNEL_2);
 
 
 	}

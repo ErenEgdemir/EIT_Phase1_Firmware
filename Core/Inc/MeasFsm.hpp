@@ -88,7 +88,8 @@ struct MeasCtx {
 
 class MEASFSM {
 public:
-	MEASFSM(uint16_t n_of_elc, uint8_t settling_period, ADC_HandleTypeDef* hadc1, TIM_HandleTypeDef* htim2);
+	MEASFSM(uint16_t n_of_elc, uint8_t settling_period, ADC_HandleTypeDef* hadc1,
+			TIM_HandleTypeDef* htim2, TIM_HandleTypeDef* htim4);
 
 	void applyCfg(uint32_t fs_hz, uint32_t f0_hz, uint16_t blank_periods, uint16_t int_periods);
     void requestStart();
@@ -148,6 +149,7 @@ private:
 	uint8_t _settling_period;
 	ADC_HandleTypeDef* _hadc1;
 	TIM_HandleTypeDef* _htim2;
+	TIM_HandleTypeDef* _htim4;
 
 	Ops m_ops{};
 	bool _start_req = false;

@@ -5,6 +5,8 @@
  *      Author: erenegdemir
  */
 #include "MeasFsm.hpp"
+#include "stm32f4xx_hal_tim.h"
+#include "main.h"
 
 
 
@@ -44,11 +46,12 @@ const MEASFSM::StateHandler MEASFSM::kHandlers[] = {
 };
 
 MEASFSM::MEASFSM(uint16_t n_of_elc, uint8_t settling_period,
-		ADC_HandleTypeDef* hadc1, TIM_HandleTypeDef* htim2):
+		ADC_HandleTypeDef* hadc1, TIM_HandleTypeDef* htim2, TIM_HandleTypeDef* htim4):
 		_n_of_elc(n_of_elc),
 		_settling_period(settling_period),
 		_hadc1(hadc1),
-		_htim2(htim2)
+		_htim2(htim2),
+		_htim4(htim4)
 
 {}
 
@@ -124,6 +127,7 @@ void MEASFSM::handleStart(void)
 
 	HAL_ADC_Start_DMA(_hadc1, (uint32_t*)adc_buf, BUF_LEN);
 	HAL_TIM_Base_Start(_htim2);
+	HAL_TIM_IC_Start_IT(_htim4, TIM_CHANNEL_2);
 
 	MUX_HOWLAND_P.init();
 	MUX_HOWLAND_N.init();
@@ -142,9 +146,6 @@ void MEASFSM::handleStart(void)
 
 void MEASFSM::handleSwitching(void)
 {
-
-
-
 	if(ctx.measIndx > _n_of_elc - 3)
 	{
 		ctx.injIndx++;
@@ -248,9 +249,12 @@ void MEASFSM::handleIntegrate(void)
 {
 	ctx.integrateArmed = true;
 	ctx.zcCaptured = false;
+	ctx.zcDone = true; 		//debug için sonra kaldır
+	ctx.integrateArmed = true;
 
 	if(ctx.zcDone == true && ctx.integrateArmed == true)
 	{
+
 		ctx.zcCaptured = true;
 		ctx.integrateArmed = false;
 
@@ -286,6 +290,7 @@ void MEASFSM::handleIntegrate(void)
 
 void MEASFSM::handleLockIn(void)
 {
+
 	ctx.Ipp = 0.0f;
 	ctx.Qpp = 0.0f;
 
@@ -350,6 +355,7 @@ void MEASFSM::handleDone(void)
 	disableMeasMUXs();
 	DDS.stop();
 
+	HAL_TIM_IC_Stop_IT(_htim4, TIM_CHANNEL_2);
 	HAL_TIM_Base_Stop(_htim2);
 	HAL_ADC_Stop_DMA(_hadc1);
 

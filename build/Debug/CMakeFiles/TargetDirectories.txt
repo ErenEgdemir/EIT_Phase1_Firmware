@@ -1,0 +1,7 @@
+/Users/erenegdemir/Desktop/EIT_Proje/Faz-1/EIT_Phase1_Firmware/build/Debug/CMakeFiles/EIT_Phase1_Firmware.dir
+/Users/erenegdemir/Desktop/EIT_Proje/Faz-1/EIT_Phase1_Firmware/build/Debug/CMakeFiles/edit_cache.dir
+/Users/erenegdemir/Desktop/EIT_Proje/Faz-1/EIT_Phase1_Firmware/build/Debug/CMakeFiles/rebuild_cache.dir
+/Users/erenegdemir/Desktop/EIT_Proje/Faz-1/EIT_Phase1_Firmware/build/Debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
+/Users/erenegdemir/Desktop/EIT_Proje/Faz-1/EIT_Phase1_Firmware/build/Debug/cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir
+/Users/erenegdemir/Desktop/EIT_Proje/Faz-1/EIT_Phase1_Firmware/build/Debug/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
+/Users/erenegdemir/Desktop/EIT_Proje/Faz-1/EIT_Phase1_Firmware/build/Debug/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir

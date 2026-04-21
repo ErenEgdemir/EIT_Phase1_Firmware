@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/erenegdemir/Desktop/EIT_Proje/Faz-1/EIT_Phase1_Firmware/build/Debug/cmake_install.cmake",
+		"/Users/erenegdemir/Desktop/EIT_Proje/Faz-1/EIT_Phase1_Firmware/build/Debug/cmake/stm32cubemx/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

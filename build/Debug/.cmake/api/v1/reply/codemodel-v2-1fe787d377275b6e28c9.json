@@ -62,21 +62,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "EIT_Phase1_Firmware::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-EIT_Phase1_Firmware-Debug-6a32f1b1e73ae9b79eae.json",
+					"jsonFile" : "target-EIT_Phase1_Firmware-Debug-0a858037627934b43fd0.json",
 					"name" : "EIT_Phase1_Firmware",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "STM32_Drivers::@768a070a0fe75716b479",
-					"jsonFile" : "target-STM32_Drivers-Debug-380b18ff263c86a5f522.json",
+					"jsonFile" : "target-STM32_Drivers-Debug-612f102d07bfe0c13b4a.json",
 					"name" : "STM32_Drivers",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "USB_Device_Library::@768a070a0fe75716b479",
-					"jsonFile" : "target-USB_Device_Library-Debug-b5243ad5c9da15c5acf1.json",
+					"jsonFile" : "target-USB_Device_Library-Debug-4c6b6eb0ba26a2bf86fb.json",
 					"name" : "USB_Device_Library",
 					"projectIndex" : 0
 				}

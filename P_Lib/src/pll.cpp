@@ -11,7 +11,7 @@
 extern CaptureEvents CpEvents;
 void PLL::init()
 {
-    HAL_StatusTypeDef _st = HAL_TIM_IC_Start_DMA(&htim5, TIM_CHANNEL_1, _tim_ic_buf, 16);
+    HAL_TIM_IC_Start_DMA(&htim5, TIM_CHANNEL_1, _tim_ic_buf, 16);
 
     PllLostFlag = false;
     _rbHead = 0;

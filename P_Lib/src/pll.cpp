@@ -31,22 +31,6 @@ void PLL::init()
     _ep = 0;
     _efAbs = 0;
     _epAbs = 0;
-
-    // _fKp = cfg.freqKpFine;
-    // _fKi = cfg.freqKiFine;
-    // _fKpCoarse = cfg.freqKpCoarse;
-    // _fKiCoarse = cfg.freqKiCoarse;
-    // _pKp = cfg.phaseKpFine;
-    // _pKpCoarse = cfg.phaseKpCoarse;
-    // _phaseIdeal = cfg.PhaseIdeal;
-    // _fs = cfg.fs_hz;
-    // _efFineMax = cfg.FreqErrorMaxFine;
-    // _epFineMax = cfg.PhaseErrorMaxFine;
-    // _efCoarseMax = cfg.FreqErrorMaxCoarse;
-    // _efCoarseMin = cfg.FreqErrorMinCoarse;
-    // _epCoarseMax = cfg.PhaseErrorMaxCoarse;
-    // _epCoarseMin = cfg.PhaseErrorMinCoarse;
-
 }
 
 void PLL::setConfig(eit_cfg_t cfg)

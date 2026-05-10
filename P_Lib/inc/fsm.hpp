@@ -21,54 +21,43 @@ extern "C"{
 
 class FSM {
 public:
-	enum class State: uint8_t {
-		IDLE = 0,
-		MEAS,
-		SENDING,
-		FAULT,
-		BORDER
-	};
-	struct Inputs {
-		bool MeasDone = false;
-		float Ipp[MEAS_COUNT];
-		float Qpp[MEAS_COUNT];
-		bool start = false;
-		bool stop = false;
-		eit_cfg_t cfg;
-		eit_map_t map[208];
+  enum class State : uint8_t { IDLE = 0, MEAS, SENDING, FAULT, BORDER };
+  struct Inputs {
+    bool MeasDone = false;
+    float Ipp[MEAS_COUNT];
+    float Qpp[MEAS_COUNT];
+    bool start = false;
+    bool stop = false;
+    eit_cfg_t cfg;
+    eit_map_t map[208];
+  };
 
-	};
+  float _tx_Ipp[MEAS_COUNT];
+  float _tx_Qpp[MEAS_COUNT];
+  bool _tx_pending = false;
 
-	float _tx_Ipp[MEAS_COUNT];
-	float _tx_Qpp[MEAS_COUNT];
-	bool  _tx_pending = false;
+  explicit FSM(State st = State::IDLE);
 
-	explicit FSM(State st = State::IDLE);
+  void setSubFsm(MEASFSM *sub) { _sub = sub; }
 
-	void setSubFsm(MEASFSM* sub) { _sub = sub; }
+  State getState() const; // salt okunur
 
+  void changeState(State st);
 
-	State getState() const;				//salt okunur
-
-	void changeState(State st);
-
-	void tick(const Inputs& in);
+  void tick(const Inputs &in);
 
 private:
-	void idle(void);
-	void meas(void);
-	void sending(void);
-	void fault(void);
+  void idle(void);
+  void meas(void);
+  void sending(void);
+  void fault(void);
 
-	using StateHandler = void (FSM::*)();
-	static const StateHandler Handlers[];
+  using StateHandler = void (FSM::*)();
+  static const StateHandler Handlers[];
 
-
-
-	State _st;
-	Inputs _in{};
-	MEASFSM* _sub = nullptr;
-
+  State _st;
+  Inputs _in{};
+  MEASFSM *_sub = nullptr;
 };
 
 #endif /* INC_FSM_HPP_ */

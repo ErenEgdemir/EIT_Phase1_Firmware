@@ -18,7 +18,7 @@
 extern "C" {
 #endif
 
-#define RXRB_SIZE	2048
+#define RXRB_SIZE	2048u
 #define MAX_PAYLOAD	1024
 
 

@@ -8356,7 +8356,7 @@ LOAD linker stubs
  .comment       0x00000043       0x44 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-impure.o)
  .comment       0x00000043       0x44 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
-.debug_info     0x00000000    0x25b6e
+.debug_info     0x00000000    0x25b86
  .debug_info    0x00000000      0x53e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Src/system_stm32f4xx.c.obj
  .debug_info    0x0000053e     0x1577 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
  .debug_info    0x00001ab5      0x6ea cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
@@ -8382,23 +8382,23 @@ LOAD linker stubs
  .debug_info    0x00014530      0xc05 CMakeFiles/EIT_Phase1_Firmware.dir/Src/stm32f4xx_it.c.obj
  .debug_info    0x00015135     0x130e CMakeFiles/EIT_Phase1_Firmware.dir/Src/stm32f4xx_hal_msp.c.obj
  .debug_info    0x00016443       0x30 CMakeFiles/EIT_Phase1_Firmware.dir/startup_stm32f411xe.s.obj
- .debug_info    0x00016473     0x3434 CMakeFiles/EIT_Phase1_Firmware.dir/App/app.cpp.obj
- .debug_info    0x000198a7      0xe27 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/ad9833.cpp.obj
- .debug_info    0x0001a6ce     0x1106 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/com_handler.c.obj
- .debug_info    0x0001b7d4     0x1f77 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/fsm.cpp.obj
- .debug_info    0x0001d74b      0xcc5 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/IRQ_Handler.cpp.obj
- .debug_info    0x0001e410     0x2e07 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MeasFsm.cpp.obj
- .debug_info    0x00021217      0x8ca CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MUX.cpp.obj
- .debug_info    0x00021ae1     0x1823 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/pll.cpp.obj
- .debug_info    0x00023304      0x796 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/nco.cpp.obj
- .debug_info    0x00023a9a      0xfb8 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
- .debug_info    0x00024a52       0xe0 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_info    0x00024b32      0x6fb /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
- .debug_info    0x0002522d      0x10b /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
- .debug_info    0x00025338      0x715 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-impure.o)
- .debug_info    0x00025a4d      0x121 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_info    0x00016473     0x344a CMakeFiles/EIT_Phase1_Firmware.dir/App/app.cpp.obj
+ .debug_info    0x000198bd      0xe27 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/ad9833.cpp.obj
+ .debug_info    0x0001a6e4     0x1106 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/com_handler.c.obj
+ .debug_info    0x0001b7ea     0x1f79 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/fsm.cpp.obj
+ .debug_info    0x0001d763      0xcc5 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/IRQ_Handler.cpp.obj
+ .debug_info    0x0001e428     0x2e07 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MeasFsm.cpp.obj
+ .debug_info    0x0002122f      0x8ca CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MUX.cpp.obj
+ .debug_info    0x00021af9     0x1823 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/pll.cpp.obj
+ .debug_info    0x0002331c      0x796 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/nco.cpp.obj
+ .debug_info    0x00023ab2      0xfb8 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_info    0x00024a6a       0xe0 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_info    0x00024b4a      0x6fb /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_info    0x00025245      0x10b /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_info    0x00025350      0x715 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-impure.o)
+ .debug_info    0x00025a65      0x121 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
-.debug_abbrev   0x00000000     0x60b0
+.debug_abbrev   0x00000000     0x60ad
  .debug_abbrev  0x00000000      0x11a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Src/system_stm32f4xx.c.obj
  .debug_abbrev  0x0000011a      0x2b6 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
  .debug_abbrev  0x000003d0      0x1da cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
@@ -8424,21 +8424,21 @@ LOAD linker stubs
  .debug_abbrev  0x000033ba      0x1e8 CMakeFiles/EIT_Phase1_Firmware.dir/Src/stm32f4xx_it.c.obj
  .debug_abbrev  0x000035a2      0x260 CMakeFiles/EIT_Phase1_Firmware.dir/Src/stm32f4xx_hal_msp.c.obj
  .debug_abbrev  0x00003802       0x24 CMakeFiles/EIT_Phase1_Firmware.dir/startup_stm32f411xe.s.obj
- .debug_abbrev  0x00003826      0x599 CMakeFiles/EIT_Phase1_Firmware.dir/App/app.cpp.obj
- .debug_abbrev  0x00003dbf      0x2b6 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/ad9833.cpp.obj
- .debug_abbrev  0x00004075      0x36f CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/com_handler.c.obj
- .debug_abbrev  0x000043e4      0x464 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/fsm.cpp.obj
- .debug_abbrev  0x00004848      0x1f0 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/IRQ_Handler.cpp.obj
- .debug_abbrev  0x00004a38      0x58c CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MeasFsm.cpp.obj
- .debug_abbrev  0x00004fc4      0x201 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MUX.cpp.obj
- .debug_abbrev  0x000051c5      0x3bc CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/pll.cpp.obj
- .debug_abbrev  0x00005581      0x23c CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/nco.cpp.obj
- .debug_abbrev  0x000057bd      0x424 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
- .debug_abbrev  0x00005be1       0x9e /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_abbrev  0x00005c7f      0x15e /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
- .debug_abbrev  0x00005ddd       0xc9 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
- .debug_abbrev  0x00005ea6      0x149 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-impure.o)
- .debug_abbrev  0x00005fef       0xc1 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_abbrev  0x00003826      0x597 CMakeFiles/EIT_Phase1_Firmware.dir/App/app.cpp.obj
+ .debug_abbrev  0x00003dbd      0x2b6 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/ad9833.cpp.obj
+ .debug_abbrev  0x00004073      0x36f CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/com_handler.c.obj
+ .debug_abbrev  0x000043e2      0x463 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/fsm.cpp.obj
+ .debug_abbrev  0x00004845      0x1f0 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/IRQ_Handler.cpp.obj
+ .debug_abbrev  0x00004a35      0x58c CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MeasFsm.cpp.obj
+ .debug_abbrev  0x00004fc1      0x201 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MUX.cpp.obj
+ .debug_abbrev  0x000051c2      0x3bc CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/pll.cpp.obj
+ .debug_abbrev  0x0000557e      0x23c CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/nco.cpp.obj
+ .debug_abbrev  0x000057ba      0x424 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_abbrev  0x00005bde       0x9e /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_abbrev  0x00005c7c      0x15e /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_abbrev  0x00005dda       0xc9 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_abbrev  0x00005ea3      0x149 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-impure.o)
+ .debug_abbrev  0x00005fec       0xc1 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
 .debug_aranges  0x00000000     0x1a28
  .debug_aranges
@@ -8779,7 +8779,7 @@ LOAD linker stubs
  .debug_macro   0x000223ba      0x5ef CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/pll.cpp.obj
  .debug_macro   0x000229a9      0x36d CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/nco.cpp.obj
 
-.debug_line     0x00000000    0x2387b
+.debug_line     0x00000000    0x23874
  .debug_line    0x00000000      0x8c0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Src/system_stm32f4xx.c.obj
  .debug_line    0x000008c0     0x158a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
  .debug_line    0x00001e4a      0x90a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
@@ -8807,62 +8807,62 @@ LOAD linker stubs
  .debug_line    0x00019983       0x7a CMakeFiles/EIT_Phase1_Firmware.dir/startup_stm32f411xe.s.obj
  .debug_line    0x000199fd     0x11ea CMakeFiles/EIT_Phase1_Firmware.dir/App/app.cpp.obj
  .debug_line    0x0001abe7      0xb7f CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/ad9833.cpp.obj
- .debug_line    0x0001b766     0x1229 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/com_handler.c.obj
- .debug_line    0x0001c98f      0xd4c CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/fsm.cpp.obj
- .debug_line    0x0001d6db      0xc6c CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/IRQ_Handler.cpp.obj
- .debug_line    0x0001e347     0x173f CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MeasFsm.cpp.obj
- .debug_line    0x0001fa86      0xbeb CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MUX.cpp.obj
- .debug_line    0x00020671     0x1894 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/pll.cpp.obj
- .debug_line    0x00021f05      0xbd5 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/nco.cpp.obj
- .debug_line    0x00022ada      0x5d1 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
- .debug_line    0x000230ab      0x17e /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_line    0x00023229      0x185 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
- .debug_line    0x000233ae      0x168 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
- .debug_line    0x00023516      0x163 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-impure.o)
- .debug_line    0x00023679      0x202 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_line    0x0001b766     0x1226 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/com_handler.c.obj
+ .debug_line    0x0001c98c      0xd4c CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/fsm.cpp.obj
+ .debug_line    0x0001d6d8      0xc6c CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/IRQ_Handler.cpp.obj
+ .debug_line    0x0001e344     0x173f CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MeasFsm.cpp.obj
+ .debug_line    0x0001fa83      0xbeb CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MUX.cpp.obj
+ .debug_line    0x0002066e     0x1890 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/pll.cpp.obj
+ .debug_line    0x00021efe      0xbd5 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/nco.cpp.obj
+ .debug_line    0x00022ad3      0x5d1 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_line    0x000230a4      0x17e /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_line    0x00023222      0x185 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_line    0x000233a7      0x168 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_line    0x0002350f      0x163 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-impure.o)
+ .debug_line    0x00023672      0x202 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
-.debug_str      0x00000000    0xaa425
- .debug_str     0x00000000    0xaa425 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Src/system_stm32f4xx.c.obj
+.debug_str      0x00000000    0xaa426
+ .debug_str     0x00000000    0xaa426 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Src/system_stm32f4xx.c.obj
                               0x93509 (size before relaxing)
- .debug_str     0x000aa425    0x93fda cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_str     0x000aa425    0x938ca cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
- .debug_str     0x000aa425    0x93eb5 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_str     0x000aa425    0x93942 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_str     0x000aa425    0x93689 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_str     0x000aa425    0x93916 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
- .debug_str     0x000aa425    0x93ca4 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_str     0x000aa425    0x93f3a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_str     0x000aa425    0x93ae9 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c.obj
- .debug_str     0x000aa425    0x93dba cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_str     0x000aa425    0x94886 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_str     0x000aa425    0x94092 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_str     0x000aa425    0x97caa cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
- .debug_str     0x000aa425    0x97ad5 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
- .debug_str     0x000aa425    0x979aa cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
- .debug_str     0x000aa425    0x9834a cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
- .debug_str     0x000aa425    0x9876c CMakeFiles/EIT_Phase1_Firmware.dir/Src/main.c.obj
- .debug_str     0x000aa425    0x97d52 CMakeFiles/EIT_Phase1_Firmware.dir/Src/usb_device.c.obj
- .debug_str     0x000aa425    0x98a4b CMakeFiles/EIT_Phase1_Firmware.dir/Src/usbd_conf.c.obj
- .debug_str     0x000aa425    0x97897 CMakeFiles/EIT_Phase1_Firmware.dir/Src/usbd_desc.c.obj
- .debug_str     0x000aa425    0x97e2c CMakeFiles/EIT_Phase1_Firmware.dir/Src/usbd_cdc_if.c.obj
- .debug_str     0x000aa425    0x9413c CMakeFiles/EIT_Phase1_Firmware.dir/Src/stm32f4xx_it.c.obj
- .debug_str     0x000aa425    0x94674 CMakeFiles/EIT_Phase1_Firmware.dir/Src/stm32f4xx_hal_msp.c.obj
- .debug_str     0x000aa425       0xbc CMakeFiles/EIT_Phase1_Firmware.dir/startup_stm32f411xe.s.obj
- .debug_str     0x000aa425    0xa23db CMakeFiles/EIT_Phase1_Firmware.dir/App/app.cpp.obj
- .debug_str     0x000aa425    0x96b62 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/ad9833.cpp.obj
- .debug_str     0x000aa425    0x981a2 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/com_handler.c.obj
- .debug_str     0x000aa425    0x9b15f CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/fsm.cpp.obj
- .debug_str     0x000aa425    0x9a25e CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/IRQ_Handler.cpp.obj
- .debug_str     0x000aa425    0xa25bb CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MeasFsm.cpp.obj
- .debug_str     0x000aa425    0x96551 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MUX.cpp.obj
- .debug_str     0x000aa425    0xa1381 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/pll.cpp.obj
- .debug_str     0x000aa425    0x10951 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/nco.cpp.obj
- .debug_str     0x000aa425      0x7b4 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
- .debug_str     0x000aa425      0x211 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_str     0x000aa425      0x52b /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
- .debug_str     0x000aa425      0x272 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
- .debug_str     0x000aa425      0x531 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-impure.o)
- .debug_str     0x000aa425      0x22f /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_str     0x000aa426    0x93fda cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_str     0x000aa426    0x938ca cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
+ .debug_str     0x000aa426    0x93eb5 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_str     0x000aa426    0x93942 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_str     0x000aa426    0x93689 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_str     0x000aa426    0x93916 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_str     0x000aa426    0x93ca4 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_str     0x000aa426    0x93f3a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_str     0x000aa426    0x93ae9 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c.obj
+ .debug_str     0x000aa426    0x93dba cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_str     0x000aa426    0x94886 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_str     0x000aa426    0x94092 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_str     0x000aa426    0x97caa cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+ .debug_str     0x000aa426    0x97ad5 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+ .debug_str     0x000aa426    0x979aa cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+ .debug_str     0x000aa426    0x9834a cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+ .debug_str     0x000aa426    0x9876d CMakeFiles/EIT_Phase1_Firmware.dir/Src/main.c.obj
+ .debug_str     0x000aa426    0x97d52 CMakeFiles/EIT_Phase1_Firmware.dir/Src/usb_device.c.obj
+ .debug_str     0x000aa426    0x98a4b CMakeFiles/EIT_Phase1_Firmware.dir/Src/usbd_conf.c.obj
+ .debug_str     0x000aa426    0x97897 CMakeFiles/EIT_Phase1_Firmware.dir/Src/usbd_desc.c.obj
+ .debug_str     0x000aa426    0x97e2d CMakeFiles/EIT_Phase1_Firmware.dir/Src/usbd_cdc_if.c.obj
+ .debug_str     0x000aa426    0x9413c CMakeFiles/EIT_Phase1_Firmware.dir/Src/stm32f4xx_it.c.obj
+ .debug_str     0x000aa426    0x94674 CMakeFiles/EIT_Phase1_Firmware.dir/Src/stm32f4xx_hal_msp.c.obj
+ .debug_str     0x000aa426       0xbc CMakeFiles/EIT_Phase1_Firmware.dir/startup_stm32f411xe.s.obj
+ .debug_str     0x000aa426    0xa23dc CMakeFiles/EIT_Phase1_Firmware.dir/App/app.cpp.obj
+ .debug_str     0x000aa426    0x96b62 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/ad9833.cpp.obj
+ .debug_str     0x000aa426    0x981a3 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/com_handler.c.obj
+ .debug_str     0x000aa426    0x9b160 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/fsm.cpp.obj
+ .debug_str     0x000aa426    0x9a25f CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/IRQ_Handler.cpp.obj
+ .debug_str     0x000aa426    0xa25bc CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MeasFsm.cpp.obj
+ .debug_str     0x000aa426    0x96551 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/MUX.cpp.obj
+ .debug_str     0x000aa426    0xa1382 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/pll.cpp.obj
+ .debug_str     0x000aa426    0x10951 CMakeFiles/EIT_Phase1_Firmware.dir/P_Lib/src/nco.cpp.obj
+ .debug_str     0x000aa426      0x7b4 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_str     0x000aa426      0x211 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_str     0x000aa426      0x52b /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_str     0x000aa426      0x272 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_str     0x000aa426      0x531 /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-impure.o)
+ .debug_str     0x000aa426      0x22f /Users/erenegdemir/Library/Application Support/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memcpy-stub.o)
 
 .debug_frame    0x00000000     0x68dc
  .debug_frame   0x00000000       0x50 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Src/system_stm32f4xx.c.obj

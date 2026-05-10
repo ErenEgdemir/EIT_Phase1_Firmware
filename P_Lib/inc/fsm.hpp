@@ -18,7 +18,7 @@ extern "C"{
 #include "com_handler.h"
 #include "eit_types.h"
 }
-
+// deneme
 class FSM {
 public:
   enum class State : uint8_t { IDLE = 0, MEAS, SENDING, FAULT, BORDER };

@@ -5,6 +5,7 @@
 #include "nco.hpp"
 #include <cstdint>
 #include <cmath>
+#include "profiler.h"
 
 #define F_TIM       60000000.0f
 #define N_P_INC     134217728
@@ -87,6 +88,7 @@ bool PLL::queuePop(CapSample *cap)
 
 void PLL::captureBlockProcessing()
 {
+    Profiler_Begin(PLL_CAP_BLOCK_PRS);
     CapSample cap;
     if(CpEvents.halfCapCallback_pll){
         for(int i = 0; i < 8; i ++){
@@ -145,7 +147,7 @@ void PLL::captureBlockProcessing()
         }
         CpEvents.fullCapCallback_pll = false;
     }
-    
+    Profiler_End(PLL_CAP_BLOCK_PRS);  
 }
 float PLL::calcFrequencyError(CapSample c, uint32_t p_inc)
 {
@@ -330,6 +332,7 @@ void PLL::lost()
 
 void PLL::update()
 {
+    Profiler_Begin(PLL_UPDATE);
     debug.st = (uint8_t)st;
     switch(st){
     case State::ACQUIRE:
@@ -345,6 +348,7 @@ void PLL::update()
     default:
     break; 
     }
+    Profiler_End(PLL_UPDATE);
 }
 
 void PLL::getDebugData(eit_debug_t* d)

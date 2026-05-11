@@ -10,8 +10,10 @@
 
 #include "com_handler.h"
 #include "eit_types.h"
+#include "profiler.h"
 #include "usbd_cdc_if.h"
 #include <string.h>
+#include "profiler.h"
 
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
@@ -36,7 +38,11 @@ static volatile uint8_t g_req_start = 0;
 static volatile uint8_t g_req_stop = 0;
 
 static uint32_t g_meas_seq = 0;
+#if DEBUG_EN
 static uint32_t g_debug_seq = 0;
+#endif
+static uint8_t map_ok = 0;
+static uint8_t cfg_ok = 0;
 
 static eit_cfg_t g_cfg = {
 		.map_id = 1,
@@ -98,12 +104,14 @@ static inline void wr_u32le(uint8_t* p, uint32_t v)
 	p[3] = (uint8_t)((v >> 24) & 0xFF);
 
 }
+#if DEBUG_EN
 static inline void wr_f32le(uint8_t* p, float v)
 {
     uint32_t raw;
     memcpy(&raw, &v, sizeof(raw));
     wr_u32le(p, raw);
 }
+#endif
 
 void rb_push(const uint8_t* p, uint16_t n)
 {
@@ -196,6 +204,7 @@ static void send_data_frame(uint32_t meas_seq, uint16_t map_id, const float* A, 
 	send_frame(pl, need);
 }
 
+#if DEBUG_EN
 static void send_debug_frame(uint32_t debug_seq, eit_debug_t d)
 {
 	static uint8_t pl[MAX_PAYLOAD];
@@ -218,6 +227,7 @@ static void send_debug_frame(uint32_t debug_seq, eit_debug_t d)
 	send_frame(pl, need);
 	
 }
+#endif
 
 static void handle_payload(const uint8_t* pl, uint16_t len)
 {
@@ -281,6 +291,7 @@ static void handle_payload(const uint8_t* pl, uint16_t len)
 		g_cfg.PhaseErrorMinCoarse 	= rd_u32le(&args[62]);
 
 		send_cmd_rsp(req_id, cmd, ST_OK, NULL, 0);
+		cfg_ok = 1;
 	}	break;
 	case CMD_STATUS_GET: {
 		//opt: start_req(u8) , stop_req(u8), map_id(u16), blank(u16), integ(u16)
@@ -323,6 +334,7 @@ static void handle_payload(const uint8_t* pl, uint16_t len)
 			
 		}
 		send_cmd_rsp(req_id, cmd, ST_OK, NULL, 0);
+		map_ok = 1;
 	break;
 	default:
 		send_cmd_rsp(req_id, cmd, ST_BAD_CMD, NULL, 0);
@@ -350,16 +362,19 @@ void CDC_TxRetry_Poll(void)
 	if(!g_tx_pending) return;
 	if(usb_tx_busy()) return;
 
+	Profiler_Begin(COM_TX_RETRY_POLL);
 	memcpy(g_tx_active_buf, g_tx_pending_buf, g_tx_pending_len);
 	g_tx_active_len = g_tx_pending_len;
 	if(usb_try_send(g_tx_active_buf, g_tx_active_len)) {
 		g_tx_pending = false;
 		g_tx_pending_len = 0;
 	}
+	Profiler_End(COM_TX_RETRY_POLL);
 }
 
 void EIT_FrameParser_Poll(void)
 {
+	Profiler_Begin(COM_FRAME_PARSER_POLL);
 	uint8_t b;
 	while(rb_pop(&b)) {
 		switch (ps) {
@@ -408,20 +423,33 @@ void EIT_FrameParser_Poll(void)
 
 		}
 	}
+	Profiler_End(COM_FRAME_PARSER_POLL);
 }
 
 void EIT_SendData(const float* A, uint16_t N){
-    if(g_tx_pending) return;
+	Profiler_Begin(COM_SEND_DATA);
+    if(g_tx_pending) {
+		Profiler_End(COM_SEND_DATA);
+		return;
+	}
     g_meas_seq++;
     send_data_frame(g_meas_seq, g_cfg.map_id, A, N);
+	Profiler_End(COM_SEND_DATA);
 }
+
+#if DEBUG_EN
 void EIT_SendDebug(eit_debug_t* d)
 {
-	if(g_tx_pending) return;
+	Profiler_Begin(COM_SEND_DEBUG);
+	if(g_tx_pending) {
+		Profiler_End(COM_SEND_DEBUG);
+		return;
+	}
 	g_debug_seq++;
 	send_debug_frame(g_debug_seq, *d);
-
+	Profiler_End(COM_SEND_DEBUG);
 }
+#endif
 
 
 bool EIT_TakeStartReq(void){
@@ -435,13 +463,23 @@ bool EIT_TakeStopReq(void){
     return true;
 }
 void EIT_GetCfg(eit_cfg_t* out){
-    if(out) *out = g_cfg; // snapshot
+
+	//if(!cfg_ok) return;
+    if(out){
+		*out = g_cfg; // snapshot
+		cfg_ok = 0;
+	} 
+	return;
 }
 
 void EIT_GetMapTable(eit_map_t* map) {
+	
+	//if(!map_ok) return;
 	if(map){
 		memcpy(map, g_map, sizeof(g_map));
+		map_ok = 0;
 	}
+	return;
 }
 
 

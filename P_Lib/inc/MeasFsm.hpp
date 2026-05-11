@@ -167,6 +167,8 @@ private:
 	uint16_t _blank_periods = 10;
 	uint16_t _int_periods   = 16;
 	bool _cfg_valid = false;
+    float _adcScale = 0.0;
+	float _normalizer = 0.0;
 
 };
 

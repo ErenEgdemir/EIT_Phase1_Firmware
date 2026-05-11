@@ -13,6 +13,7 @@
 #include "IRQ_Handler.hpp"
 #include <cmath>
 #include <cstring>
+#include "profiler.h"
 
 
 
@@ -21,8 +22,8 @@
 #define MAP_SIZE			10
 
 #define REF_V				3.3f
-#define ADC_MAX				4096
-#define GAIN				1
+#define ADC_MAX				4095
+#define GAIN				1.0f
 
 #define HOW_FREQ			25000
 #define ADC_FREQ			800000
@@ -152,12 +153,12 @@ void MEASFSM::handleIdle()
 void MEASFSM::handleStart(void)
 {
 
-
+	Profiler_Begin(MEAS_START);
 	HAL_ADC_Start_DMA(_hadc1, (uint32_t*)adc_buf, BUF_LEN);
 	HAL_TIM_Base_Start(_htim2);
 	
-
-	HAL_Delay(500);
+	_adcScale = (REF_V / (((float)ADC_MAX) * (float)GAIN));
+	_normalizer = (2.0f / (float)(_int_periods * 32));
 
 	MUX_HOWLAND_P.init();
 	MUX_HOWLAND_N.init();
@@ -172,12 +173,14 @@ void MEASFSM::handleStart(void)
 	_injectIndx = 0;
 
 	ctx.st = MeasState::SWITCHING;
+	Profiler_End(MEAS_START);
 	return;
 
 }
 
 void MEASFSM::handleSwitching(void)
 {
+	Profiler_Begin(MEAS_SWITCHING);
 
 	MUX_HOWLAND_P.setPin(_map[_injectIndx].i_p);
 	MUX_HOWLAND_N.setPin(_map[_injectIndx].i_n);
@@ -186,6 +189,8 @@ void MEASFSM::handleSwitching(void)
 	_injectIndx++;
 	if(_injectIndx >= 208) _injectIndx = 0;
 	ctx.st = MeasState::SETTLING;
+	
+	Profiler_End(MEAS_SWITCHING);
 	return;
 }
 
@@ -193,14 +198,16 @@ void MEASFSM::handleSettlingIRQ()
 {
 	if(!(CpEvents.fullCapCallback_fsm)) return;
 	if(!(ctx.st == MeasState::SETTLING)) return;
-
+	Profiler_Begin(MEAS_SETTLING_IRQ);
+	ctx.settling_count++;
 	if((ctx.settling_count) * 16 >= _blank_periods) //16 periyotta bir callback high veriyor.
 	{
 		ctx.settlingDone = true;
 		ctx.settling_count = 0;
 	}
-	else ctx.settling_count++;
+
 	CpEvents.fullCapCallback_fsm = false;
+	Profiler_End(MEAS_SETTLING_IRQ);
 }
 
 void MEASFSM::handleSettling(void)
@@ -208,14 +215,13 @@ void MEASFSM::handleSettling(void)
 	handleSettlingIRQ();
 	if(ctx.settlingDone)
 	{
-		ctx.st = MeasState::INTEGRATE;
+		Profiler_Begin(MEAS_SETTLING);
 		ctx.settlingDone = false;
-
 		ctx.zcDone = false;
 		ctx.zcCaptured = false;
 		ctx.integrateArmed = true;
-
 		ctx.st = MeasState::INTEGRATE;
+		Profiler_End(MEAS_SETTLING);
 		return;
 	}
 }
@@ -227,7 +233,7 @@ void MEASFSM::handleIntegrateTimer_IRQ(uint32_t ndtr, uint32_t t)
 	if(!ctx.integrateArmed) return;
 	if(ctx.zcDone) return;
 
-
+	Profiler_Begin(MEAS_INTEGRATE_TIMER_IRQ);
 	uint32_t t_now = __HAL_TIM_GET_COUNTER(_htim4);
 
 	uint32_t dtick = 0;
@@ -240,11 +246,15 @@ void MEASFSM::handleIntegrateTimer_IRQ(uint32_t ndtr, uint32_t t)
 	
 	if(t_prev == 0) {
 		t_prev = t_edge;
+		Profiler_End(MEAS_INTEGRATE_TIMER_IRQ);
 		return;
 	}
 	dt = t_edge - t_prev;
 	t_prev = t_edge;
-	if(dt < (T_exp / 2)) return;	
+	if(dt < (T_exp / 2)) {
+		Profiler_End(MEAS_INTEGRATE_TIMER_IRQ);
+		return;	
+	}
 	dtick = t_now - t_edge;
 
 	dpos = (uint32_t)(((uint64_t)dtick * _fs_hz + (F_TIM/2)) / F_TIM);
@@ -260,7 +270,7 @@ void MEASFSM::handleIntegrateTimer_IRQ(uint32_t ndtr, uint32_t t)
 	CpEvents.fullCapCallback_fsm = false;
 	CpEvents.halfCapCallback_fsm = false;
 	
-	
+	Profiler_End(MEAS_INTEGRATE_TIMER_IRQ);
 }
 
 void MEASFSM::handleIntegrate(void) {
@@ -269,6 +279,8 @@ void MEASFSM::handleIntegrate(void) {
 	
 	if(!ctx.zcDone) return;
 
+	Profiler_Begin(MEAS_INTEGRATE);
+
 	const uint32_t N = (uint32_t)(_int_periods * 32);
 
 	uint32_t ndtr = __HAL_DMA_GET_COUNTER(_hadc1->DMA_Handle);
@@ -276,7 +288,10 @@ void MEASFSM::handleIntegrate(void) {
 
 	uint32_t distance = (currentPos - ctx.winStartPos) & (BUF_LEN - 1);
 
-	if(distance < N) return;
+	if(distance < N) {
+		Profiler_End(MEAS_INTEGRATE);
+		return;
+	}
 
 	if(ctx.winStartPos + N <= BUF_LEN) {
 		memcpy(ctx.win, &adc_buf[ctx.winStartPos], N * sizeof(uint16_t));
@@ -291,12 +306,16 @@ void MEASFSM::handleIntegrate(void) {
 
 	ctx.zcDone = false;
 	ctx.st = MeasState::LOCKIN;
+
 	NCO.setPhaseInc(PLL.getPhaseInc());
 	NCO.setPhaseCorr(PLL.getPhaseCorr());
+
+	Profiler_End(MEAS_INTEGRATE);
 }
 
 void MEASFSM::handleLockIn(void)
 {
+	Profiler_Begin(MEAS_LOCKIN);
 	ctx.phs = 0;
 
 	ctx.Ipp = 0.0f;
@@ -311,7 +330,7 @@ void MEASFSM::handleLockIn(void)
 
 	for(int i = 0; i < (_int_periods * 32); i++)
 	{
-		float x = ((float)ctx.win[i] - mean) * (REF_V / ((float)ADC_MAX) * (float)GAIN);
+		float x = ((float)ctx.win[i] - mean) * _adcScale;
 
 		
 		ctx.Ipp += x * NCO.getCos();
@@ -323,28 +342,29 @@ void MEASFSM::handleLockIn(void)
 		if(Vmin > ctx.win[i]) Vmin = ctx.win[i];
 
 	}
-	ctx.IppNormalized = ctx.Ipp * (2.0f / (float)(_int_periods * 32));
-	ctx.QppNormalized = ctx.Qpp * (2.0f / (float)(_int_periods * 32));
+	ctx.IppNormalized = ctx.Ipp * _normalizer;
+	ctx.QppNormalized = ctx.Qpp * _normalizer;
 	float Isqr = ctx.Ipp * ctx.Ipp;
 	float Qsqr = ctx.Qpp * ctx.Qpp;
 
 	ctx.Mag = sqrtf(Isqr + Qsqr);
-	ctx.Amp = ctx.Mag * (2.0f / (float)(_int_periods * 32));
+	ctx.Amp = ctx.Mag * _normalizer;
 
 	uint16_t VppInt = (uint16_t)(Vmax - Vmin);
-	ctx.Vpp = (float)VppInt * (REF_V / (float)ADC_MAX);
+	ctx.Vpp = (float)VppInt * _adcScale;
 	k = ctx.Vpp / ctx.Amp;
 
 	ctx.st = MeasState::STORE;
+
+	Profiler_End(MEAS_LOCKIN);
 
 	return;
 }
 
 void MEASFSM::handleStore(void)
 {
+	Profiler_Begin(MEAS_STORE);
 	if(ctx.storeIndx < 208){
-		// ctx.strAmp[ctx.storeIndx] = ctx.Amp;
-		// ctx.strVpp[ctx.storeIndx] = ctx.Vpp;
 		ctx.strIpp[ctx.storeIndx] = ctx.IppNormalized;
 		ctx.strQpp[ctx.storeIndx] = ctx.QppNormalized;
 		ctx.storeIndx++;
@@ -354,12 +374,14 @@ void MEASFSM::handleStore(void)
 		ctx.st = MeasState::DONE;
 		ctx.storeIndx = 0;
 	}
-	HAL_TIM_IC_Start_IT(_htim4, TIM_CHANNEL_1);
+	//HAL_TIM_IC_Start_IT(_htim4, TIM_CHANNEL_1);
+	Profiler_End(MEAS_STORE);
 	return;
 }
 
 void MEASFSM::handleDone(void)
 {
+	Profiler_Begin(MEAS_DONE);
 	disableHowlandMUXs();
 	disableMeasMUXs();
 
@@ -369,7 +391,11 @@ void MEASFSM::handleDone(void)
 	}
 
 	ctx = {0};
-	ctx.st = MeasState::START;
+	_injectIndx = 0;
+	ctx.st = MeasState::SWITCHING;
+	//start a tekrar tekrar girmesin diye _injectIndx = 0; bunu buraya ekledim statei de switchinge bagladim.
+	
+	Profiler_End(MEAS_DONE);
 	return;
 }
 

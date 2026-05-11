@@ -53,6 +53,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     P_Lib/src/MUX.cpp
     P_Lib/src/pll.cpp
     P_Lib/src/nco.cpp
+    P_Lib/src/profiler.c
 
 )
 

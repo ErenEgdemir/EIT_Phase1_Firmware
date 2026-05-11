@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app.hpp"
+#include "profiler.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,7 +99,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+    Profiler_Init();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -112,6 +113,7 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   app_setup();
+  uint32_t last_prof_tick = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -119,6 +121,12 @@ int main(void)
   while (1)
   {
     app_loop();
+
+    if((HAL_GetTick() - last_prof_tick) >= 1000)
+    {
+      last_prof_tick += 1000;
+      Profiler_Update_1s();
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

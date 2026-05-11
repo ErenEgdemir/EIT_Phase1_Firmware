@@ -10,6 +10,7 @@
 #include "com_handler.h"
 #include "eit_types.h"
 #include "pll.hpp"
+#include "profiler.h"
 
 extern PLL PLL;
 eit_debug_t debugFSM;
@@ -60,6 +61,7 @@ void FSM::meas()
 	        changeState(State::IDLE);
 	        return;
 	}
+#if DEBUG_EN
 	if(CpEvents.debugSend){
 		static uint32_t i = 0;
 		i++;
@@ -72,16 +74,20 @@ void FSM::meas()
 		}
 
 	}
+#endif
 
 	PLL.captureBlockProcessing();
 	PLL.update();
 	if(_sub) _sub->tick();
 
     if(_in.MeasDone) {
+		
+		Profiler_Begin(FSM_SEND_MEASDONE_CND);
         memcpy(_tx_Ipp, _in.Ipp, sizeof(_tx_Ipp)); // latch
 		memcpy(_tx_Qpp, _in.Qpp, sizeof(_tx_Qpp));
         _tx_pending = true;
         changeState(State::SENDING);
+		Profiler_End(FSM_SEND_MEASDONE_CND);
     }
 
 }

@@ -23,6 +23,8 @@ extern "C" {
 
 
 
+
+
 typedef enum {
 	M_CMD_REQ	= 1,
 	M_CMD_RSP	= 2,
@@ -54,7 +56,12 @@ void rb_push(const uint8_t* p, uint16_t n);
 void CDC_TxRetry_Poll(void);
 void EIT_FrameParser_Poll(void);
 void EIT_SendData(const float* A, uint16_t N);
+
+#if DEBUG_EN
 void EIT_SendDebug(eit_debug_t* d);
+#else
+#define EIT_SendDebug(d) ((void)0)
+#endif
 
 bool EIT_TakeStartReq(void);
 bool EIT_TakeStopReq(void);

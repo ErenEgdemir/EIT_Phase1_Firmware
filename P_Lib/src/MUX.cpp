@@ -33,8 +33,8 @@ void MUX::s2High(void){HAL_GPIO_WritePin(_mxpPort, _mxpPin2, GPIO_PIN_SET);}
 void MUX::s3Low(void){HAL_GPIO_WritePin(_mxpPort, _mxpPin3, GPIO_PIN_RESET);}
 void MUX::s3High(void){HAL_GPIO_WritePin(_mxpPort, _mxpPin3, GPIO_PIN_SET);}
 
-void MUX::enable(void){HAL_GPIO_WritePin(_enPort, _enPin, GPIO_PIN_RESET);}
-void MUX::disable(void){HAL_GPIO_WritePin(_enPort, _enPin, GPIO_PIN_SET);}
+void MUX::enable(void){HAL_GPIO_WritePin(_enPort, _enPin, GPIO_PIN_SET);}
+void MUX::disable(void){HAL_GPIO_WritePin(_enPort, _enPin, GPIO_PIN_RESET);}
 
 void MUX::init(void)
 {

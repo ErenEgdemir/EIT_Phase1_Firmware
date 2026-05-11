@@ -10,6 +10,8 @@
 
 #include <stdint.h>
 
+#define DEBUG_EN   1
+
 typedef struct {
     uint16_t map_id;
     uint32_t fs_hz;

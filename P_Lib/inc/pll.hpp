@@ -34,6 +34,7 @@ public:
     uint32_t getPhaseInc();
     int32_t getPhaseCorr();
     void getDebugData(eit_debug_t* d);
+    void setNcoPhase(uint32_t phase);
     bool PllLostFlag = false;
 
 private:
@@ -65,6 +66,7 @@ private:
     uint32_t _phase;
     uint32_t _phaseIncrement;
     int32_t _phaseCorr = 0;
+    float _phaseCorrF = 0.0f;
 
     uint32_t _tim_ic_buf[16];
     uint32_t _dt[5];

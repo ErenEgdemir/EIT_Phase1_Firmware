@@ -52,10 +52,10 @@ extern "C" {
 		SubFSM.setOps(ops);
 	
 		MainFsm.setSubFsm(&SubFSM);
-		DDS.init();
-		DDS.setFrequency(25000);
-		DDS.setPhase(0);
-		DDS.start();
+		// DDS.init();
+		// DDS.setFrequency(25000);
+		// DDS.setPhase(0);
+		// DDS.start();
 		HAL_TIM_Base_Start(&htim3);
 
 	}

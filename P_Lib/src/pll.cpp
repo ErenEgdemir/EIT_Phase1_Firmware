@@ -59,6 +59,11 @@ uint32_t PLL::calcPhaseInc(uint32_t sineFreq, uint32_t adcFreq, uint8_t ncoBits)
 	return phaseInc;
 }
 
+void PLL::setNcoPhase(uint32_t phase)
+{
+    _phase = phase;
+}
+
 void PLL::halfCapture()
 {
     _halfCapture = true;
@@ -196,8 +201,12 @@ void PLL::clampInt(int32_t *p, int32_t max, int32_t min)
 void PLL::applyPhaseP(float kp, int32_t e)
 {
     
-    _phaseCorr += kp * e;
-    clampInt(&_phaseCorr, +(1 << 26), -(1 << 26));
+    _phaseCorrF += kp * (float)e;
+
+    if(_phaseCorrF > (float)(1 << 26)) _phaseCorrF = (float)(1 << 26);
+    if(_phaseCorrF < -(float)(1 << 26)) _phaseCorrF = -(float)(1 << 26);
+
+    _phaseCorr = (int32_t)_phaseCorrF;
 
 }
 int32_t PLL::abs32(int32_t a)
@@ -277,6 +286,8 @@ void PLL::updateFine()
     _ep = calcPhaseError(_phaseIdeal, _phasePrediction);
     debug.phaseError = _ep;
     applyPhaseP(_pKp, _ep);
+    debug.phaseCorr = _phaseCorr;
+    debug.phase = _phasePrediction;
     //Referance Update
     _refEdge = capCatche.edgeTime;
     _phaseRef = _phasePrediction;

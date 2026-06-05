@@ -41,8 +41,6 @@ void FSM::changeState(State state)
 
 void FSM::idle()
 {
-	EIT_FrameParser_Poll();
-	CDC_TxRetry_Poll();
 	
 	if(_in.start && _sub){
 		_sub->applyCfg(_in.cfg);
@@ -54,11 +52,10 @@ void FSM::idle()
 
 void FSM::meas()
 {
-	EIT_FrameParser_Poll();
-	CDC_TxRetry_Poll();
 	if (_in.stop && _sub) {
 	        _sub->requestStop();
 	        changeState(State::IDLE);
+			
 	        return;
 	}
 #if DEBUG_EN

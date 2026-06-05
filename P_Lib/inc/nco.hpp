@@ -12,10 +12,12 @@ public:
     void init();
     void run();
     uint32_t calcPhaseIncrement(uint32_t sineFreq, uint32_t adcFreq, uint8_t ncoBit);
+    uint32_t getPhase();
     void setPhaseInc(uint32_t phaseInc);
     void setPhaseCorr(int32_t phaseCorr);
     float getSine();
     float getCos();
+    void reset();
 private:
     void generateLut(float *lut, uint16_t lutSize);
     uint32_t _phase = 0;

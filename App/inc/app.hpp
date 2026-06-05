@@ -9,7 +9,7 @@
 #define INC_APP_HPP_
 
 // #include "stm32f4xx_hal_tim.h"
-#define	ADC_FREQ		799744u
+#define	ADC_FREQ		800000u
 #define NOC_BIT			32u
 #define SHIFT_SIZE		10     //phase mapping for LUT (1024 = 2^10)
 

@@ -29,6 +29,7 @@ uint32_t NCO::calcPhaseIncrement(uint32_t sineFreq, uint32_t adcFreq, uint8_t nc
 void NCO::init()
 {
 	generateLut(LUT, 4096);
+	_phase = 0;
 }
 
 void NCO::run()
@@ -59,4 +60,14 @@ float NCO::getCos()
 	uint32_t baseIndx = _phaseUse >> (NCO_BIT - LUT_BIT);
 	_cosIndx = (baseIndx + (LUT_SIZE / 4)) & (LUT_SIZE - 1);
 	return LUT[_cosIndx];
+}
+
+uint32_t NCO::getPhase()
+{
+	return _phase;
+}
+
+void NCO::reset()
+{
+	_phase = 0;
 }

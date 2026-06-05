@@ -59,6 +59,8 @@ struct MeasCtx {
 	float strQpp[MEAS_COUNT];
 	float rawAmp[16];
 	float meanRawAmp;
+	uint32_t t_prev = 0;
+	bool t_prev_valid = false;
 
 	uint32_t phs = 0;
 	uint32_t phsInc = 0;
@@ -169,6 +171,10 @@ private:
 	bool _cfg_valid = false;
     float _adcScale = 0.0;
 	float _normalizer = 0.0;
+	uint16_t _samples_per_period;
+	uint32_t _T_exp_ticks;
+	uint16_t _int_samples;
+	uint16_t _settling_samples;
 
 };
 

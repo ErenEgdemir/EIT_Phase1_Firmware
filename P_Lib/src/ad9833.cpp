@@ -9,8 +9,6 @@
 
 static constexpr uint16_t CTRL_B28	= (1u << 13);
 static constexpr uint16_t CTRL_RST 	= (1u << 8);
-static constexpr uint16_t CTRL_OPBITEN = (1u << 5);
-static constexpr uint16_t CTRL_DIV2 = (1u << 3);
 static constexpr uint16_t CTRL_SLEEP12 = (1u << 6);
 
 

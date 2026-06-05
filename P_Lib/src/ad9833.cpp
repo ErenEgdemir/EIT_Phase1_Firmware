@@ -11,6 +11,7 @@ static constexpr uint16_t CTRL_B28	= (1u << 13);
 static constexpr uint16_t CTRL_RST 	= (1u << 8);
 static constexpr uint16_t CTRL_OPBITEN = (1u << 5);
 static constexpr uint16_t CTRL_DIV2 = (1u << 3);
+static constexpr uint16_t CTRL_SLEEP12 = (1u << 6);
 
 
 static constexpr uint16_t FREQ0_ADDR = 0x4000;
@@ -53,12 +54,12 @@ void AD9833::init(void)
 
 void AD9833::start(void)
 {
-	write16b(CTRL_B28 | CTRL_OPBITEN | CTRL_DIV2);
+	write16b(CTRL_B28);
 }
 
 void AD9833::stop(void)
 {
-	write16b(CTRL_B28 | CTRL_RST);
+	write16b(CTRL_B28 | CTRL_RST | CTRL_SLEEP12);
 }
 
 
@@ -66,16 +67,11 @@ void AD9833::setFrequency(uint32_t f_hz)
 {
 	uint32_t ftw = (uint32_t)(((uint64_t)f_hz << 28) / _mclk);
 
-//	uint32_t ftw = 0x10c7;
 	uint16_t LSB14 = (uint16_t)(ftw & 0x3fff);
 	uint16_t MSB14 = (uint16_t)((ftw >> 14) & 0x3fff);
 
 	write16b(FREQ0_ADDR | LSB14);
 	write16b(FREQ0_ADDR | MSB14);
-
-//	write16b(0x4001);
-//	write16b(0x4000);
-
 }
 
 void AD9833::setPhase(uint16_t phs)

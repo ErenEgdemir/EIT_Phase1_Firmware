@@ -14,7 +14,7 @@
 #include "eit_types.h"
 
 
-#define WIN_N			512
+#define WIN_N			4096
 #define BUF_LEN			4096
 #define MEAS_COUNT		208
 

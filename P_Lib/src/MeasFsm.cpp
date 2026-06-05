@@ -15,9 +15,6 @@
 #include <cstring>
 #include "profiler.h"
 
-
-
-#define WIN_N				512
 #define NOC_BIT				32
 #define MAP_SIZE			10
 
@@ -125,6 +122,7 @@ void MEASFSM::applyCfg(eit_cfg_t cfg)
 	_samples_per_period = _fs_hz / _f0_hz;
 
     _settling_samples = cfg.blank_periods * _samples_per_period;
+	_blank_periods = cfg.blank_periods;
     _int_samples = cfg.int_periods * _samples_per_period;
 
 	_T_exp_ticks = F_TIM / _f0_hz;
@@ -205,7 +203,7 @@ void MEASFSM::handleStart(void)
 
 	NCO.init();
 	NCO.setPhaseInc(NCO.calcPhaseIncrement(_f0_hz, _fs_hz, 32));
-	PLL.init();
+	PLL.init(NCO.calcPhaseIncrement(_f0_hz, _fs_hz, 32));
 
 	ctx.rep_count = 16;
 	_injectIndx = 0;
@@ -452,6 +450,7 @@ void MEASFSM::abortToIdle()
 
     HAL_TIM_Base_Stop(_htim2);
     HAL_ADC_Stop_DMA(_hadc1);
+	HAL_TIM_Base_Stop(_htim4);
 
 	CpEvents.fullCapCallback_fsm = false;
 	CpEvents.halfCapCallback_fsm = false;

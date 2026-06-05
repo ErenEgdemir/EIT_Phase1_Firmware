@@ -220,7 +220,7 @@ static void send_debug_frame(uint32_t debug_seq, eit_debug_t d)
 
 	uint16_t need = (uint16_t)(1 + 4 + 2 + 2 + 29);
 	if(need > MAX_PAYLOAD) return;
-	pl[0] = (uint8_t)M_DATA;
+	pl[0] = (uint8_t)M_DEBUG;
 	wr_u32le(&pl[1], debug_seq);
 	memcpy(&pl[5], debug, sizeof(debug));
 
@@ -464,7 +464,7 @@ bool EIT_TakeStopReq(void){
 }
 void EIT_GetCfg(eit_cfg_t* out){
 
-	//if(!cfg_ok) return;
+	if(!cfg_ok) return;
     if(out){
 		*out = g_cfg; // snapshot
 		cfg_ok = 0;
@@ -474,7 +474,7 @@ void EIT_GetCfg(eit_cfg_t* out){
 
 void EIT_GetMapTable(eit_map_t* map) {
 	
-	//if(!map_ok) return;
+	if(!map_ok) return;
 	if(map){
 		memcpy(map, g_map, sizeof(g_map));
 		map_ok = 0;

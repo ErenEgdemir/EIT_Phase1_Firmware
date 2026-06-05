@@ -10,7 +10,7 @@
 #define F_TIM       60000000.0f
 #define N_P_INC     134217728
 extern CaptureEvents CpEvents;
-void PLL::init()
+void PLL::init(uint32_t initPhaseInc)
 {
     HAL_TIM_IC_Start_DMA(&htim5, TIM_CHANNEL_1, _tim_ic_buf, 16);
 
@@ -32,6 +32,10 @@ void PLL::init()
     _ep = 0;
     _efAbs = 0;
     _epAbs = 0;
+    _phaseIncrement = initPhaseInc;
+    _phaseCorr = 0;
+    _phase = 0;
+    _phaseCorrF = 0.0f;
 }
 
 void PLL::setConfig(eit_cfg_t cfg)

@@ -29,7 +29,7 @@ public:
     void halfCapture();
     void fullCapture();
     void update();
-    void init();
+    void init(uint32_t initPhaseInc);
     void setConfig(eit_cfg_t cfg);
     uint32_t getPhaseInc();
     int32_t getPhaseCorr();
